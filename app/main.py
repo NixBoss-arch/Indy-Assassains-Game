@@ -218,7 +218,7 @@ class accounts():
         
         # Return everything on the account with the id given
         for row in range(2, len(database['A']) + 1):
-            if database[f'{omitted_columns[0]}{row}'].value == str(data_known):
+            if str(database[f'{omitted_columns[0]}{row}'].value) == str(data_known):
                 for column in data_columns:
                     data.append(database[f"{column}{row}"].value)
             
@@ -463,6 +463,59 @@ class teams():
                 
             self.DATAFILE.save(DATAFILE) 
             return 200
+        
+    def getAccounts(self, data_given: str, data_known):
+        """_summary_
+
+        Args:
+            data_given (str): Type of data that is known (id, name, status, url extension)
+            data_known (_type_): Data that is already known (Known name, known id, etc.)
+
+        Returns:
+            _type_: _description_
+        """
+        database = load_workbook(DATAFILE)['Teams']
+        def get_data_lists(data_given):
+            columns = {
+                # First Array will always be the omitted columns
+                'id':([['A'],['B','C','D','E','F','G','H','I','J','K','L','M']]),
+                'status': ([['k'],['A','B','C','D','E','F','G','H','I','J','L','M']]),
+                'percent_alive': ([['L'],['A','B','C','D','E','F','G','H','I','J','K','M']])
+            }
+            
+            return columns.get(data_given,404)
+            
+        data_columns = get_data_lists(data_given)[1]
+        omitted_columns = get_data_lists(data_given)[0]
+        
+        data = []
+        '''
+            Usable columns and rows in each sheet (all are automatically filled by bot):
+            Players:
+                A2-A1000:Player ID's (See line 32 to see how they are generated)
+                B2-B1000: First Names
+                C2-C1000: Last Names
+                D2-D1000: Status (Dead or Alive)
+                E2-E1000: Number of Confirmed Eliminations
+                F2-F1000: Phone Numbers (Both for group chat and for player information)
+                G2-G1000: Password
+                H2-H1000: URL Extensions to their profile accounts
+        '''
+        
+        # Return everything on the account with the id given
+        for row in range(2, len(database['A']) + 1):
+            
+            if str(database[f'{omitted_columns[0]}{row}'].value) == str(data_known):
+                for column in data_columns:
+                    data.append(database[f"{column}{row}"].value)
+            
+
+        return data
+        ''' In order data returns:
+            [ID (if given url_extension), FIRST NAME, LAST NAME, STATUS (Dead or Alive), NUMBER OF CONFIRMED ELIMINATIONS, PHONE NUMBER, PASSWORD]
+            or
+            [FIRST NAME, LAST NAME, STATUS (Dead or Alive), NUMBER OF CONFIRMED ELIMINATIONS, PHONE NUMBER, PASSWORD, URL_EXTENSION (if given ID)]
+        '''   
 
 class targets():
     
@@ -497,16 +550,14 @@ class targets():
         
         if (timeToDivide.days <= 0) and (timeToDivide.days > -26):                                             # If today is the day teams divide or after, teams will be divided
             self.FINALLIST = self.wb['Duos']
-            
+ 
         if timeToDivide.days <= -26:
             self.FINALLIST = self.wb['Players']
-            
+
         elif timeToDivide.days > 0:
             self.FINALLIST = self.wb['Teams']
-        
-        
 
-
+        self.next_clear_row = len(self.FINALLIST['A'])     # Finding number of teams  
     
     def load(self):         # Set up for target assignments
         '''
@@ -517,18 +568,86 @@ class targets():
             5. If the ID's do not match, clear the cell in the Target list and move what was in that cell to row in M column of 'Teams' sheet.
             6. Repeat from step 2.
         '''
-        pass
+        for team in range(2, self.next_clear_row+1):
+            team_id = self.FINALLIST[f'A{team}'].value
+            self.ASSIGNLIST[f'A{team}'].value = team     # Adding team to hunter list
+            self.ASSIGNLIST[f'B{team}'].value = team_id     # Adding team to hunter list
+            self.ASSIGNLIST[f'C{team}'].value = team_id     # Adding team to target list
+            
+        self.wb.save(DATAFILE)
     
-    def status_check(self, admin:str = None, password:str = None):         # Check status and edit status of any team. If admin matches either gamemaster username and password matches correct password (admin username) then status can be manually changed.
+    def assign(self):
+        total_team_count = len(self.ASSIGNLIST['A'])
+        global team_ids
+        team_ids = []
+        
+                     # hunter id will be first followed by the target id 
+        for team_id in range(2,total_team_count + 1):
+            match = True
+            global ties
+            ties = []  
+            while match == True:
+                available_target_count = len(self.ASSIGNLIST['C'])
+                
+                assignment = random.randint(2, int(available_target_count))
+                target = self.ASSIGNLIST[f'C{assignment}'].value
+                hunter = self.ASSIGNLIST[f'B{team_id}'].value
+                hunter_row = self.ASSIGNLIST[f'A{team_id}'].value
+                # print(f"{hunter}   {target}")
+                if (target == hunter) or (target == None):
+                    match = True
+                elif target != hunter:
+                    self.FINALLIST[f'M{hunter_row}'].value = target
+                    self.ASSIGNLIST[f'C{assignment}'].value = None
+                    match = False
+                    ties.append(hunter)
+                    ties.append(target)
+                    
+                    
+            # print(target)
+            team_ids.append(ties)       
+            # print("Target Assigned")
+            
+        self.wb.save(DATAFILE)
+        return team_ids
+                    
+    def wipe(self):                 # Clearing ASSIGNLIST and current target assignments
+        for team in range(2,self.next_clear_row + 1):
+            self.FINALLIST[f'M{team}'].value = None
+            self.ASSIGNLIST[f'A{team}'].value = None
+            self.ASSIGNLIST[f'B{team}'].value = None
+            self.ASSIGNLIST[f'C{team}'].value = None
+            
+        self.wb.save(DATAFILE)
+    
+    def status_check(self, admin:str = None, password:str = None):         
+        ''' Check status and edit status of any team. 
+        If admin matches either gamemaster username and password matches correct password (admin username) then status can be manually changed.
+        '''
         if (admin.lower in GAMEMASTERS) and (password == 'c1f96b08fa7efdfb3732fca9db56e39a594944b2b14c5a95cce11a2e24de5b2d'):
             pass
         
         else:
             pass
         
-        
-
-
+    def backgroundTarget(self, hunter_information:int):
+        '''
+            Given the id of the hunting team, this function will return the names of each player that is tied to the target
+        ''' 
+        for i in range(2, self.next_clear_row):
+            if self.FINALLIST[f"A{i}"].value == hunter_information:
+                if self.FINALLIST.title == "Teams":         # Target ID's are in different columns based on the team sizes
+                    target_id = self.FINALLIST[f"M{i}"].value
+                    target_id = 4533
+                    target_data = teams().getAccounts('id',target_id)
+                    for i in range(1,8,2):
+                        player = accounts().getAccount('id',target_data[i])
+                        name = (player[0] + " " + player[1])
+                        print(player)
+                    
+                    break
+                    
+                    
 # Everything above this line is backend management, below this line is front end:
 ###########################################    
 
@@ -606,23 +725,27 @@ def admin():
         
         if request.form.get("update_submit",False):
             
-            update_content = request.form.get("update_text")
-            
+            update_content = request.form.get("update_text")        # Getting the message that will be added to the update
             newUpdate(update_content)
-            
-            confirmation = "Update has been posted."
+            confirmation = "Update has been posted."                # Return feedback saying update has been posted
             
             pass
-    
+            
+        if request.form.get("assign", False):
+            
+            pass
+            
     return render_template('admin.html', confirm = confirmation)
 
 
 if __name__ == "__main__":
     # app.run(host = "0.0.0.0", debug = True)
-    # accounts().newAccount('Jacob','Giblin','test123','1234567890')
-    # accounts().newAccount('Josh','Smith','test163','1234365820')
-    # accounts().newAccount('Thomas','Hunter','test923','1234567523')
-    teams().set_teams('Breaking Bad',['Nick Romsdal','Jacob Giblin','Josh Smith','Thomas Hunter'])
+    targets().wipe()
+    targets().load()
+    assignments = targets().assign()
+    targets().backgroundTarget(1352)
+    
+    
     
     
 
