@@ -23,25 +23,25 @@
     * [ ] Duos 2/20/23 - 3/17/23
     * [ ] Teams of 4: 1/23/23 - 2/17/23
 
-* [ ] Legal Nerf Rounds:
-    * [ ] Any gun from the Nerf Rival series or N-Strike series
-    * [ ] No preformance modifications (Beefed up spring, faster flywheel, etc)
+* [X] ~~*Legal Nerf Rounds:*~~ [2023-01-03]
+    * [X] ~~*Any gun from the Nerf Rival series or N-Strike series*~~ [2023-01-03]
+    * [X] ~~*No preformance modifications (Beefed up spring, faster flywheel, etc)*~~ [2023-01-03]
 
-* [ ] Reasons to disqualify
-    * [ ] Law enforcement involvement (Both teams are eliminated)
-    * [ ] Destruction of property
-    * [ ] Lying about eliminations
-    * [ ] Using tracking device
+* [X] ~~*Reasons to disqualify*~~ [2023-01-03]
+    * [X] ~~*Law enforcement involvement (Both teams are eliminated)*~~ [2023-01-03]
+    * [X] ~~*Destruction of property*~~ [2023-01-03]
+    * [X] ~~*Lying about eliminations*~~ [2023-01-03]
+    * [X] ~~*Using tracking device*~~ [2023-01-03]
 
 
 * [ ] Elimination Rules:
-    * [ ] Teams must eliminated 50% of their target team to move on (Revives do not count towards 50%)
-    * [ ] Must take a dead fish picture to qualify elimination
-    * [ ] Revives must be purchased in the same round of the elimination. Revives will be $5.00 per person. Two revives per person for the whole game.
+    * [X] ~~*Teams must eliminated 50% of their target team to move on (Revives do not count towards 50%)*~~ [2023-01-03]
+    * [X] ~~*Must take a dead fish picture to qualify elimination*~~ [2023-01-03]
+    * [X] ~~*Revives must be purchased in the same round of the elimination. Revives will be $5.00 per person. Two revives per person for the whole game.*~~ [2023-01-03]
     * [ ] Majority Elimination Rule
-        * [ ] Teams are eliminated if they have a majority of their players out by the end of the round.
+        * [X] ~~*Teams are eliminated if they have a majority of their players out by the end of the round.*~~ [2023-01-03]
     * [ ] Duos will not have the majority elimination rule.
-    * [ ] If revives are not purchased before end of round, teams will move on with who they have.
+    * [X] ~~*If revives are not purchased before end of round, teams will move on with who they have.*~~ [2023-01-03]
     * [ ] Zombie Outbreak
         * [ ] Starting during Spring Break
         * [ ] Those who were eliminated and could not be revived prior to Spring Break will have a chance to take revenge on their hunters by rejoining as one large teaem.

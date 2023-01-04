@@ -1,3 +1,80 @@
+# Admin Username: 
+# c1f96b08fa7efdfb3732fca9db56e39a594944b2b14c5a95cce11a2e24de5b2d   
+'''                                                                                                                                                       
+#                                      dddddddd                                                                                                                     
+#   iiii                               d::::::d                                                                                                                     
+#  i::::i                              d::::::d                                                                                                                     
+#   iiii                               d::::::d                                                                                                                     
+#                                      d:::::d                                                                                                                      
+# iiiiiiinnnn  nnnnnnnn        ddddddddd:::::dyyyyyyy           yyyyyyy                                                                                             
+# i:::::in:::nn::::::::nn    dd::::::::::::::d y:::::y         y:::::y                                                                                              
+#  i::::in::::::::::::::nn  d::::::::::::::::d  y:::::y       y:::::y                                                                                               
+#  i::::inn:::::::::::::::nd:::::::ddddd:::::d   y:::::y     y:::::y                                                                                                
+#  i::::i  n:::::nnnn:::::nd::::::d    d:::::d    y:::::y   y:::::y                                                                                                 
+#  i::::i  n::::n    n::::nd:::::d     d:::::d     y:::::y y:::::y                                                                                                  
+#  i::::i  n::::n    n::::nd:::::d     d:::::d      y:::::y:::::y                                                                                                   
+#  i::::i  n::::n    n::::nd:::::d     d:::::d       y:::::::::y                                                                                                    
+# i::::::i n::::n    n::::nd::::::ddddd::::::dd       y:::::::y                                                                                                     
+# i::::::i n::::n    n::::n d:::::::::::::::::d        y:::::y                                                                                                      
+# i::::::i n::::n    n::::n  d:::::::::ddd::::d       y:::::y                                                                                                       
+# iiiiiiii nnnnnn    nnnnnn   ddddddddd   ddddd      y:::::y                                                                                                        
+#                                                   y:::::y                                                                                                         
+#                                                  y:::::y                                                                                                          
+#                                                 y:::::y                                                                                                           
+#                                                y:::::y                                                                                                            
+#                                               yyyyyyy                                                                                                             
+#                                                                                                                           iiii                                    
+#                                                                                                                          i::::i                                   
+#                                                                                                                           iiii                                    
+                                                                                                                                                                  
+#   aaaaaaaaaaaaa      ssssssssss       ssssssssss     aaaaaaaaaaaaa      ssssssssss       ssssssssss     aaaaaaaaaaaaa   iiiiiiinnnn  nnnnnnnn        ssssssssss   
+#   a::::::::::::a   ss::::::::::s    ss::::::::::s    a::::::::::::a   ss::::::::::s    ss::::::::::s    a::::::::::::a  i:::::in:::nn::::::::nn    ss::::::::::s  
+#   aaaaaaaaa:::::ass:::::::::::::s ss:::::::::::::s   aaaaaaaaa:::::ass:::::::::::::s ss:::::::::::::s   aaaaaaaaa:::::a  i::::in::::::::::::::nn ss:::::::::::::s 
+#            a::::as::::::ssss:::::ss::::::ssss:::::s           a::::as::::::ssss:::::ss::::::ssss:::::s           a::::a  i::::inn:::::::::::::::ns::::::ssss:::::s
+#     aaaaaaa:::::a s:::::s  ssssss  s:::::s  ssssss     aaaaaaa:::::a s:::::s  ssssss  s:::::s  ssssss     aaaaaaa:::::a  i::::i  n:::::nnnn:::::n s:::::s  ssssss 
+#   aa::::::::::::a   s::::::s         s::::::s        aa::::::::::::a   s::::::s         s::::::s        aa::::::::::::a  i::::i  n::::n    n::::n   s::::::s      
+#  a::::aaaa::::::a      s::::::s         s::::::s    a::::aaaa::::::a      s::::::s         s::::::s    a::::aaaa::::::a  i::::i  n::::n    n::::n      s::::::s   
+# a::::a    a:::::assssss   s:::::s ssssss   s:::::s a::::a    a:::::assssss   s:::::s ssssss   s:::::s a::::a    a:::::a  i::::i  n::::n    n::::nssssss   s:::::s 
+# a::::a    a:::::as:::::ssss::::::ss:::::ssss::::::sa::::a    a:::::as:::::ssss::::::ss:::::ssss::::::sa::::a    a:::::a i::::::i n::::n    n::::ns:::::ssss::::::s
+# a:::::aaaa::::::as::::::::::::::s s::::::::::::::s a:::::aaaa::::::as::::::::::::::s s::::::::::::::s a:::::aaaa::::::a i::::::i n::::n    n::::ns::::::::::::::s 
+#  a::::::::::aa:::as:::::::::::ss   s:::::::::::ss   a::::::::::aa:::as:::::::::::ss   s:::::::::::ss   a::::::::::aa:::ai::::::i n::::n    n::::n s:::::::::::ss  
+#   aaaaaaaaaa  aaaa sssssssssss      sssssssssss      aaaaaaaaaa  aaaa sssssssssss      sssssssssss      aaaaaaaaaa  aaaaiiiiiiii nnnnnn    nnnnnn  sssssssssss    
+                                                                                                                                                           
+#                                                  dddddddd                                                                                                         
+#                                                  d::::::d                                                                                                         
+#                                                  d::::::d                                                                                                         
+#                                                  d::::::d                                                                                                         
+#                                                  d:::::d                                                                                                          
+#     cccccccccccccccc   ooooooooooo       ddddddddd:::::d     eeeeeeeeeeee                                                                                         
+#   cc:::::::::::::::c oo:::::::::::oo   dd::::::::::::::d   ee::::::::::::ee                                                                                       
+#  c:::::::::::::::::co:::::::::::::::o d::::::::::::::::d  e::::::eeeee:::::ee                                                                                     
+# c:::::::cccccc:::::co:::::ooooo:::::od:::::::ddddd:::::d e::::::e     e:::::e                                                                                     
+# c::::::c     ccccccco::::o     o::::od::::::d    d:::::d e:::::::eeeee::::::e                                                                                     
+# c:::::c             o::::o     o::::od:::::d     d:::::d e:::::::::::::::::e                                                                                      
+# c:::::c             o::::o     o::::od:::::d     d:::::d e::::::eeeeeeeeeee                                                                                       
+# c::::::c     ccccccco::::o     o::::od:::::d     d:::::d e:::::::e                                                                                                
+# c:::::::cccccc:::::co:::::ooooo:::::od::::::ddddd::::::dde::::::::e                                                                                               
+#  c:::::::::::::::::co:::::::::::::::o d:::::::::::::::::d e::::::::eeeeeeee                                                                                       
+#   cc:::::::::::::::c oo:::::::::::oo   d:::::::::ddd::::d  ee:::::::::::::e                                                                                       
+#     cccccccccccccccc   ooooooooooo      ddddddddd   ddddd    eeeeeeeeeeeeee                                                                                       
+                                                                                                                                                                  
+
+#                   _          _   _              
+#   __ _ _ ___ __ _| |_ ___ __| | | |__ _  _      
+#  / _| '_/ -_/ _` |  _/ -_/ _` | | '_ | || |     
+#  \__|_| \___\__,_|\__\___\__,_| |_.__/\_, |     
+#                                       |__/      
+#   _  _ _    _     ___                 _      _  
+#  | \| (_)__| |__ | _ \___ _ __  _____| |__ _| | 
+#  | .` | / _| / / |   / _ | '  \(_-/ _` / _` | | 
+#  |_|\_|_\__|_\_\ |_|_\___|_|_|_/__\__,_\__,_|_| 
+#            ___ __ ___ ____                      
+#   __ ___  |_  /  |_  |__ /                      
+#  / _/ _ \  / | () / / |_ \                      
+#  \__\___/ /___\__/___|___/                      
+'''                                            
+                                                                                                      
+
 from flask import Flask, redirect, url_for, render_template, request, flash
 from openpyxl import load_workbook
 import random       # Sun Tzu Quotes and Target Assignments
@@ -8,7 +85,10 @@ import os, sys      # File management
 FOLDER_PATH = sys.path[0]
 
 RULESFILE = rf"{FOLDER_PATH}\RulesOfWar.txt"
-DATAFILE = rf"{FOLDER_PATH}\IndependenceAssassins.xlsx"
+
+#C:\Users\Nick\Documents\GitHub\Indy-Assassains-Game\app\IndependenceAssassains.xlsx
+
+DATAFILE = rf"{FOLDER_PATH}\IndependenceAssassains.xlsx"
 QUOTEFILE = rf"{FOLDER_PATH}\WarQuotes.txt"
 UPDATESFILE = rf"{FOLDER_PATH}\Updates.txt"
 CALENDARINPUT = rf"{FOLDER_PATH}\Calendar.xlsx"
@@ -127,7 +207,7 @@ class accounts():
             passcode.value = password
             
             # creating user's url extension to their profile page
-            url_extension = sheet.cell(row = next_row, column = 9)
+            url_extension = sheet.cell(row = next_row, column = 8)
             url = hashlib.sha256(id[1].encode())
             url_extension.value = url.hexdigest()
                 
@@ -634,20 +714,64 @@ class targets():
         '''
             Given the id of the hunting team, this function will return the names of each player that is tied to the target
         ''' 
+        
         for i in range(2, self.next_clear_row):
             if self.FINALLIST[f"A{i}"].value == hunter_information:
                 if self.FINALLIST.title == "Teams":         # Target ID's are in different columns based on the team sizes
                     target_id = self.FINALLIST[f"M{i}"].value
-                    target_id = 4533
+                    # target_id = 4533
                     target_data = teams().getAccounts('id',target_id)
-                    for i in range(1,8,2):
-                        player = accounts().getAccount('id',target_data[i])
-                        name = (player[0] + " " + player[1])
-                        print(player)
+                    player_info = []
+                    for j in range(1,8,2):
+                        
+                        player = accounts().getAccount('id',target_data[j])     # Gets information on account tied to this id
+                        
+                        player_info.append(player[0] + " " + player[1])                    # Player first and last name
+                        player_info.append(player[2])                                      # Player status (dead or alive)
+                        player_info.append(player[3])                                # Number of eliminations
+                        
+                    
                     
                     break
-                    
-                    
+        
+        team_info = []
+        
+        team_info.append(target_id)
+        
+        for i in range(0,len(player_info),3):                                      # Using for loop to divide information up by player
+            player_data = []
+            for j in range(0,3):
+                player_data.append(player_info[i+j])
+            
+            team_info.append(player_data)
+        
+        return team_info
+        
+    def editTargets(self, hunter_id, new_target_id):
+        '''
+            #1. Find the hunter id in the line up
+            #2. Get current target id
+            3. Find what id is currently hunting the new target
+            4. Swap target ids
+        '''    
+        
+        # Finding hunter id 
+        for i in range(2,self.next_clear_row+1):
+
+            if str(self.FINALLIST[f'A{i}'].value) == str(hunter_id):
+
+                if (str(self.FINALLIST.title) == "Teams"):
+                    cur_target = self.FINALLIST[f'M{i}'].value
+                    for j in range(2,self.next_clear_row):
+                        if str(self.FINALLIST[f'M{j}'].value) == str(new_target_id):
+                            self.FINALLIST[f'M{i}'].value = new_target_id
+                            self.FINALLIST[f'M{j}'].value = cur_target
+                            self.wb.save(DATAFILE)
+                            
+                            return 200
+        
+        
+    
 # Everything above this line is backend management, below this line is front end:
 ###########################################    
 
@@ -704,9 +828,9 @@ def login():
 
 @app.route('/profile/<extension>')
 def profile(extension):
-    
-    profile_information = accounts().getAccount(url_extension=extension)
-    
+    print(extension)
+    profile_information = accounts().getAccount('url_extension',extension)
+    print(profile_information)
     name = profile_information[1] + " " + profile_information[2]
     if profile_information[3] == "alive":
         status = "Not dead yet."
@@ -721,6 +845,8 @@ def profile(extension):
 @app.route('/admin/c1f96b08fa7efdfb3732fca9db56e39a594944b2b14c5a95cce11a2e24de5b2d', methods = ["POST","GET"])
 def admin():
     confirmation = ""
+    assignments = ""
+    target_modification = ""
     if request.method == "POST":
         
         if request.form.get("update_submit",False):
@@ -731,19 +857,47 @@ def admin():
             
             pass
             
-        if request.form.get("assign", False):
+        if request.form.get("assign_submit", False):
+            print("Assigning Targets")
+            assignments = targets().assign()
+            for i, pair in enumerate(assignments):
+                assignments[i] = (f"{pair[0]} is hunting {pair[1]}.<br></br>")
+            assignments = ",".join(assignments)
+            assignments = assignments.replace(",","")
+            pass
+        
+        if request.form.get("load_assignments", False):
+            print("Loading Targets")
+            targets().wipe()
+            targets().load()
+            print("Targets Loaded")
+
             
             pass
+        
+        if request.form.get('edit_submit','False'):
+            print("Finding")
+            edit = request.form.get('edit_targets')
+            new_target = edit[-4:]
+            hunter = (edit[:4])
+            print(hunter, new_target)
+            change = targets().editTargets(hunter,new_target)
+            if change == 200:
+                target_modification = "Target has been changed"
+            print(assignments)
             
-    return render_template('admin.html', confirm = confirmation)
+                    
+            # elif assignments == "":
+            #     print("Assign first")
+            #     target_modification = "Targets have not been assigned yet. Please load teams and assign them before making any modifications."
+                
+            
+    return render_template('admin.html', confirm = confirmation, match_ups = assignments, target_modifications = target_modification)
 
 
 if __name__ == "__main__":
-    # app.run(host = "0.0.0.0", debug = True)
-    targets().wipe()
-    targets().load()
-    assignments = targets().assign()
-    targets().backgroundTarget(1352)
+    app.run(host = "0.0.0.0", debug = True)
+
     
     
     

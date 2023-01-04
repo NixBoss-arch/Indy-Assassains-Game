@@ -29,15 +29,31 @@
                             * Disqualifications
                     -->
                     <span id = "sectionTitle"> Player Console</span>
+                    <form>
+                        <a href = "#update" id = "create_update"><input type = "button" href = "#update" value = "Assign Targets"></input></a>
+                    </form>
                 </div>
             </div>
             <div id = "update">
-                <span id = "sectionTitle"> Updates</span>
+                <span id = "sectionTitle">Updates</span>
                 <form method = "POST" class = "update_window">
-                    <input type = "text" id = "update_field" name = "update_text" placeholder = "Enter Update Here."</input>
+                    <input type = "text" id = "update_field" name = "update_text" placeholder = "Enter Update Here."></input>
                     <input type = "submit" id = "update_submit" name = "update_submit" placeholder = "Submit Update"></input>
                 </form>
                 <span> {{confirm|safe}}</span>
             </div>
+            <div id = "assign">
+                <span id = "sectionTitle">Assign Targets</span>
+                <form method = "POST" id = "assign_button">
+                    <input type = "submit" id = "assign_submit" name = "load_assignments" placeholder = "Assign Targets" value = "Load Assignments"></input>
+                    <input type = "submit" id = "assign_submit" name = "assign_submit" placeholder = "Assign Targets" value = "Assign Targets"></input>
+                    <br></br>
+                    <input type = "text" id = "edit_targets" name = "edit_targets" placeholder = "Enter The Change Here.">Format: [Hunter ID]:[New Target ID]</input>
+                    <input type = "submit" id = "edit_submit" name = "edit_submit" placeholder = "Submit Edit" value = "Submit Edits for Target Assignments"></input>
+                </form>
+                <span id = "pairs">{{ target_modifications| safe }}</span>
+                <span id = "pairs">{{ match_ups| safe }}</span>
+            </div>
+
         </body>
 </html>

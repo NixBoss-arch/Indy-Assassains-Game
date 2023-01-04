@@ -17,3 +17,5 @@
 * [X] ~~*Look for possible hosting servers for website*~~ [2022-12-21]
 * [ ] Work with Miles Wycoff on getting website up and running on Microsoft web hosting platform
 
+* [ ] Custom 404 Error Page
+
