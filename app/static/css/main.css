@@ -113,7 +113,7 @@
     min-width:50px;
     width: 20vw;
 
-    height:50vh;
+    height:60vh;
 
     grid-column-start:0;
     grid-column-end:0;
@@ -208,12 +208,12 @@
     min-width: 100px;
     width:20vw;
 
-    height:50%;
+    max-height:50vh;
 
     font-weight:bold;
 
     grid-row-start:2;
-    grid-row-end:3;
+    grid-row-end:2;
 
     overflow-y:scroll;
 }
@@ -274,8 +274,8 @@
 
 .login_rules
 {
-    grid-column-start:7;
-    grid-column-end:7;
+    grid-column-start:10;
+    grid-column-end:10;
 
     border-style:solid;
     border-width:10px;
@@ -284,6 +284,7 @@
     min-width: 100px;
     width:20vw;
 
+    max-height:60vh;
 
     font-weight:bold;
 
@@ -468,6 +469,28 @@
 
     grid-row-start:4;
     grid-row-end:4;
+
+    border-style:solid;
+    border-width: 10px;
+    border-color:var(--text_color);
+    border-radius:5px;
+
+    min-width:50px;
+    /* width: 40vw; */
+
+    height: 50vh;
+
+    padding-top:20px;
+}
+
+
+#new_accounts
+{
+    grid-column-start:0;
+    grid-column-end:2;
+
+    grid-row-start:5;
+    grid-row-end:5;
 
     border-style:solid;
     border-width: 10px;

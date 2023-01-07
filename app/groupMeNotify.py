@@ -15,7 +15,9 @@ def message(channel,content):
         if str(group) == f"<Group(name='{channel}')>":
             message = group.post(text = content)
         
-
-
+def getChannels():
+    for group in client.groups.list_all():
+        print(str(group.name))
         
+
 

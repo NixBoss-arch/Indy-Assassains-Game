@@ -1,5 +1,7 @@
 # Admin Username: 
 # c1f96b08fa7efdfb3732fca9db56e39a594944b2b14c5a95cce11a2e24de5b2d   
+# FTP host server: ftps://waws-prod-dm1-349.ftp.azurewebsites.windows.net/site/wwwroot
+# psswrd: owQbAQjcdR5jtiuL2jMvKebmD5lJj3pHiwaRAuXE8wqhRXLyH4vsZ1prFTqm
 '''                                                                                                                                                       
 #                                      dddddddd                                                                                                                     
 #   iiii                               d::::::d                                                                                                                     
@@ -77,12 +79,15 @@
 
 from flask import Flask, redirect, url_for, render_template, request, flash
 from openpyxl import load_workbook
-import random       # Sun Tzu Quotes and Target Assignments
-import datetime     # Date and time for calendar and updates
-import hashlib      # Profile URL and Team ID encoding
-import os, sys      # File management
+import random                                                                       # Sun Tzu Quotes and Target Assignments
+import datetime                                                                     # Date and time for calendar and updates
+import hashlib                                                                      # Profile URL and Team ID encoding
+import os, sys                                                                      # File management
+import groupMeNotify as groupMe 
 
 FOLDER_PATH = sys.path[0]
+
+ 
 
 RULESFILE = rf"{FOLDER_PATH}\RulesOfWar.txt"
 
@@ -91,7 +96,7 @@ RULESFILE = rf"{FOLDER_PATH}\RulesOfWar.txt"
 DATAFILE = rf"{FOLDER_PATH}\IndependenceAssassains.xlsx"
 QUOTEFILE = rf"{FOLDER_PATH}\WarQuotes.txt"
 UPDATESFILE = rf"{FOLDER_PATH}\Updates.txt"
-CALENDARINPUT = rf"{FOLDER_PATH}\Calendar.xlsx"
+CALENDARINPUT = rf"{FOLDER_PATH}\Calendar.xlsx"  
 CALENDARFILE = rf"{FOLDER_PATH}\Calendar.txt"
 CLASSCOUNT = 500
 ENTRYCOST = 10          # Unit is dollars
@@ -396,37 +401,26 @@ class calendar():
     def processCalendar(self):                                  
         '''Converting the Excel Spreadsheet of Calendar dates to text file 
         to be shown by computer on homepage'''
-        calendarFile = open(self.CALFILE,"a")
-        calendar = load_workbook(self.CALINPUT, data_only=True)["Sheet1"]
-        calendarlist = []
-        for i, row in enumerate(calendar['A']):
-            event = []
-
-            if (type(row.value) == int) or (type(row.value) == str):                # if statement to stop code once it hits an empty cell.  
-                if i == 0:
-                    continue
-                
-                print()
-                if (int(row.value) > -1):
-                    date = calendar[f"B{i+1}"].value
-                    item = calendar[f"C{i+1}"].value
-                    
-                    formatted_date = str(datetime.datetime.strftime(date, "%m-%d-%Y"))
-                    year = formatted_date[-4:]
-                    day = formatted_date[-7:-5]
-                    month = formatted_date[:-8]
-                                    
-                    calendarFile.write(formatted_date + " ")
-                    calendarFile.write(item)
-                    calendarFile.write("\n")
-                    
-                else:
-                    continue
-            else:
-                break
+        calendarTextFile = open(self.CALFILE,"a")
+        calendarWorkBook = load_workbook(self.CALINPUT,data_only=True)
+        calendar = calendarWorkBook['Sheet1']
             
-        calendarFile.close()
-        
+        events = []
+            
+        for i in range(2,len(calendar['A'])+1):
+            if type(calendar[f'A{i}'].value) == int:
+                if (calendar[f'A{i}'].value < -1):
+                    continue
+                else:
+                    line = []
+                    date = str(calendar[f'B{i}'].value)[:-9]
+                    event = str(calendar[f'C{i}'].value)
+                    
+                    calendarTextFile.write(f"{date}:  {event} \n")
+                    
+        calendarTextFile.close()
+        calendarWorkBook.save(self.CALINPUT)
+            
     def showCalendar(self):
         
         self.wipeFile()
@@ -435,10 +429,12 @@ class calendar():
         calendarFile = open(self.CALFILE,"r")
         calendarList = []
         for i, row in enumerate(calendarFile.readlines()):
+
             calendarList.append(row)
             calendarList.append("<br>")
             calendarList.append("<br>")
             calendarList.append("<br>")
+        
         
         return "".join(calendarList)
 
@@ -460,11 +456,11 @@ class teams():
         self.DATAFILE = load_workbook(DATAFILE, data_only=True)
         self.TEAMSHEET = self.DATAFILE['Teams']
         
-    def generateID(self, members):
-        # Team ID's will be generated by combining all names into one string, hash encyrpting the string, and converting every charcter into number and adding them together.
+    def generateID(self, team_name):
+        # Team ID generated by hashing the team name, converting all characters to numbers and adding all of the numbers together.
         
-        team = "".join(members)
-        encode = hashlib.sha256(team.encode())          #Encoding with sha256 encryption
+
+        encode = hashlib.sha256(team_name.encode())          #Encoding with sha256 encryption
         team_id = 0
         
         for char in encode.hexdigest():             # hexdigest function converts the encoded variable into a string to be iterable
@@ -544,7 +540,7 @@ class teams():
             self.DATAFILE.save(DATAFILE) 
             return 200
         
-    def getAccounts(self, data_given: str, data_known):
+    def getAccounts(self, data_type_given: str, data_known):
         """_summary_
 
         Args:
@@ -555,7 +551,7 @@ class teams():
             _type_: _description_
         """
         database = load_workbook(DATAFILE)['Teams']
-        def get_data_lists(data_given):
+        def get_data_lists(data_type_given):
             columns = {
                 # First Array will always be the omitted columns
                 'id':([['A'],['B','C','D','E','F','G','H','I','J','K','L','M']]),
@@ -563,10 +559,10 @@ class teams():
                 'percent_alive': ([['L'],['A','B','C','D','E','F','G','H','I','J','K','M']])
             }
             
-            return columns.get(data_given,404)
+            return columns.get(data_type_given,404)
             
-        data_columns = get_data_lists(data_given)[1]
-        omitted_columns = get_data_lists(data_given)[0]
+        data_columns = get_data_lists(data_type_given)[1]
+        omitted_columns = get_data_lists(data_type_given)[0]
         
         data = []
         '''
@@ -589,13 +585,44 @@ class teams():
                 for column in data_columns:
                     data.append(database[f"{column}{row}"].value)
             
-
-        return data
+        if data == []:
+            return 404
+        
+        else:
+            return data
         ''' In order data returns:
             [ID (if given url_extension), FIRST NAME, LAST NAME, STATUS (Dead or Alive), NUMBER OF CONFIRMED ELIMINATIONS, PHONE NUMBER, PASSWORD]
             or
             [FIRST NAME, LAST NAME, STATUS (Dead or Alive), NUMBER OF CONFIRMED ELIMINATIONS, PHONE NUMBER, PASSWORD, URL_EXTENSION (if given ID)]
         '''   
+
+    def add_team_member(self,team_name):
+        '''
+            1. Get team via team name
+            2. Check if team is full or not
+            3. If team is not full, add new member to team
+        '''
+        database = load_workbook(DATAFILE,data_only = True)
+        team_sheet = database['Teams']
+        
+        for i, row in enumerate(team_sheet['A']):
+            i += 2
+            # print(team_sheet[f'B{i}'].value)
+            print("Test",end = ":  ")
+            print
+            if team_sheet[f'B{i}'].value == team_name:
+                print("Found")
+                for member_slot in range(0,4):
+                    column = chr(67+(2*member_slot))
+                    
+                    cell_value = team_sheet[f'{column}{i}'].value
+                    print(cell_value)
+                    if type(cell_value) == None:
+                        print("Open Spot")
+                        break
+        
+                
+        
 
 class targets():
     
@@ -603,6 +630,7 @@ class targets():
         self.wb = load_workbook(DATAFILE, data_only = True)
         self.ASSIGNLIST = self.wb['Target Assignments']
         
+        self.team_ids = []
         
         # Automating the transferring of target assignments from teams to duos to free for all based on date
         time = datetime.datetime.now().strftime("%m/%d/%Y").split('/')     # Getting current date
@@ -658,8 +686,7 @@ class targets():
     
     def assign(self):
         total_team_count = len(self.ASSIGNLIST['A'])
-        global team_ids
-        team_ids = []
+
         
                      # hunter id will be first followed by the target id 
         for team_id in range(2,total_team_count + 1):
@@ -685,11 +712,25 @@ class targets():
                     
                     
             # print(target)
-            team_ids.append(ties)       
+            self.team_ids.append(ties)       
             # print("Target Assigned")
             
         self.wb.save(DATAFILE)
-        return team_ids
+        return self.team_ids
+        
+    def showPairs(self):
+        
+        pairs = []
+        for i in range(2,(self.next_clear_row + 1)):
+            hunter = self.FINALLIST[f'A{i}'].value
+            target = self.FINALLIST[f'M{i}'].value
+            pairs.append(f"{hunter} is hunting {target}.<br></br>")
+            
+        return pairs
+        # for i, pair in enumerate(cur_assignments):
+        #         cur_assignments[i] = (f"{pair[0]} is hunting {pair[1]}.<br></br>")
+                
+        # return cur_assignments
                     
     def wipe(self):                 # Clearing ASSIGNLIST and current target assignments
         for team in range(2,self.next_clear_row + 1):
@@ -747,7 +788,7 @@ class targets():
         
         return team_info
         
-    def editTargets(self, hunter_id, new_target_id):
+    def editTargets(self,cur_assignments, hunter_id, new_target_id):
         '''
             #1. Find the hunter id in the line up
             #2. Get current target id
@@ -756,19 +797,25 @@ class targets():
         '''    
         
         # Finding hunter id 
-        for i in range(2,self.next_clear_row+1):
+        for i, pair in enumerate(cur_assignments):
+            if str(pair[0]) == hunter_id:               # First index of pair nested list will be the hunter id
+                cur_target = [pair[1], (i+2)]                    # Second index of pair nested list will be the current target id that is being swapped out
 
-            if str(self.FINALLIST[f'A{i}'].value) == str(hunter_id):
+            
+            if str(pair[1]) == new_target_id:
+                new_hunter = [pair[0], (i+2)]
 
-                if (str(self.FINALLIST.title) == "Teams"):
-                    cur_target = self.FINALLIST[f'M{i}'].value
-                    for j in range(2,self.next_clear_row):
-                        if str(self.FINALLIST[f'M{j}'].value) == str(new_target_id):
-                            self.FINALLIST[f'M{i}'].value = new_target_id
-                            self.FINALLIST[f'M{j}'].value = cur_target
-                            self.wb.save(DATAFILE)
-                            
-                            return 200
+            
+        if str(cur_target[0]) == str(new_hunter[0]):
+            return 401
+            
+        
+        if str(cur_target[0]) != str(new_hunter[0]):
+            self.FINALLIST[f"M{new_hunter[1]}"].value = cur_target[0]
+            self.FINALLIST[f"M{cur_target[1]}"].value = new_target_id
+            self.wb.save(DATAFILE)
+            return 200
+
         
         
     
@@ -776,6 +823,11 @@ class targets():
 ###########################################    
 
 app = Flask(__name__)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # Standard Error Page for any issue
+    return render_template("error.html"), 404
 
 @app.route('/', methods = ["POST", "GET"])
 def home():
@@ -844,6 +896,15 @@ def profile(extension):
 
 @app.route('/admin/c1f96b08fa7efdfb3732fca9db56e39a594944b2b14c5a95cce11a2e24de5b2d', methods = ["POST","GET"])
 def admin():
+    '''
+    Admin Features:
+        - Publish updates to game home page (COMPLETE)
+        - Create Target Assignments         (COMPLETE)
+        - Edit Target Assignments           (COMPLETE)
+        - Create New Accounts               (NOT STARTED)
+        - Disqualify Players                (NOT STARTED)
+        - Change status of Players          (NOT STARTED)
+    '''
     confirmation = ""
     assignments = ""
     target_modification = ""
@@ -859,48 +920,84 @@ def admin():
             
         if request.form.get("assign_submit", False):
             print("Assigning Targets")
-            assignments = targets().assign()
-            for i, pair in enumerate(assignments):
-                assignments[i] = (f"{pair[0]} is hunting {pair[1]}.<br></br>")
+            
+            global raw_assignments
+            raw_assignments = targets().assign()
+            assignments = targets().showPairs()
             assignments = ",".join(assignments)
             assignments = assignments.replace(",","")
-            pass
-        
-        if request.form.get("load_assignments", False):
-            print("Loading Targets")
-            targets().wipe()
-            targets().load()
-            print("Targets Loaded")
+                
+            # except PermissionError:
+            #     match_ups = "The database for target assignments is currently in use. Make sure the database is saved and closed before trying again."
 
             
             pass
         
-        if request.form.get('edit_submit','False'):
-            print("Finding")
-            edit = request.form.get('edit_targets')
-            new_target = edit[-4:]
-            hunter = (edit[:4])
-            print(hunter, new_target)
-            change = targets().editTargets(hunter,new_target)
-            if change == 200:
-                target_modification = "Target has been changed"
-            print(assignments)
-            
-                    
-            # elif assignments == "":
-            #     print("Assign first")
-            #     target_modification = "Targets have not been assigned yet. Please load teams and assign them before making any modifications."
+        if request.form.get("load_assignments", False):
+            try:
+                targets().wipe()
+                targets().load()
+            except PermissionError:
+                match_ups = "The database for target assignments is currently in use. Make sure the database is saved and closed before trying again."
+
+            pass
+        
+        if request.form.get('edit_submit',False):
+            try:
+                edit = request.form.get('edit_targets')
+                if edit == None:
+                    edit = ""
+                hunter, new_target = edit.split(":")
                 
+            except ValueError or AttributeError:
+                pass
+            
+            try:
+                change = targets().editTargets(raw_assignments,hunter,new_target)
+                if change == 401:
+                    target_modification = "This edit cannot be made because the current target would be hunting themselves.<br></br>Please select another team to swap with.<br></br>"
+                    pass
+                    
+                if change == 200:
+                    target_modification = "Target has been changed"
+                    pass
+                    
+                assignments = targets().showPairs()
+                assignments = ",".join(assignments)
+                assignments = assignments.replace(",","")
+            
+            except NameError:
+                target_modification = "Assign teams before trying to make any edits.<br></br>"
+                pass
+            
+        if request.form.get('add_account', False):
+
+            name = request.form.get('name')
+            firstName, lastName = name.split(' ')               # splitting name into first name and last name on the space
+            
+            password = request.form.get('password')
+            
+            number = request.form.get('phone_number')
+            
+            if accounts().validateAccount(name = name, phonenumber=number) == 404:
+                accounts().newAccount(firstName = firstName, lastName = lastName, password = password, number = number)
+            
+            # team_name = request.form.get('team_name')
+            # team_id = teams().generateID(team_name)
+            # if teams().getAccounts(data_type_given = "id", data_known = team_id) == 404:
+            #     teams().set_teams(team_name = team_name, team_members = )
+            
+                
+                
+                
+
+
             
     return render_template('admin.html', confirm = confirmation, match_ups = assignments, target_modifications = target_modification)
 
 
 if __name__ == "__main__":
-    app.run(host = "0.0.0.0", debug = True)
+    # app.run(host = "0.0.0.0", debug = True)
+    teams().add_team_member(team_name = "Breaking Bad Man")
 
-    
-    
-    
-    
 
-    

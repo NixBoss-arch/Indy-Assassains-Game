@@ -13,9 +13,17 @@
     1. Assign players an ID on sign up
     2. Group ID's together for teams
         * Will allow easy migration to solos
-* [ ] Create GroupMe bot to give TLDR updates on the game
+* [X] ~~*Create GroupMe bot to give TLDR updates on the game*~~ [2023-01-05]
 * [X] ~~*Look for possible hosting servers for website*~~ [2022-12-21]
-* [ ] Work with Miles Wycoff on getting website up and running on Microsoft web hosting platform
+* [X] ~~*Work with Miles Wycoff on getting website up and running on Microsoft web hosting platform*~~ [2023-01-05]
 
-* [ ] Custom 404 Error Page
+* [X] ~~*Custom 404 Error Page*~~ [2023-01-05]
 
+* [ ] Admin Page
+    * [X] ~~*Publish updates to be sent to the main home page*~~ [2023-01-05]
+    * [X] ~~*Create Target Assignments*~~ [2023-01-05]
+    * [ ] Edit Target Assignments before publishing
+    * [ ] Publish Target Assignments
+    * [ ] Create New Accounts
+    * [ ] Disqualify Players
+    * [ ] Change Status of Players

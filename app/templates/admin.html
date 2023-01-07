@@ -54,6 +54,26 @@
                 <span id = "pairs">{{ target_modifications| safe }}</span>
                 <span id = "pairs">{{ match_ups| safe }}</span>
             </div>
+            <div id = "new_accounts">
+                <span id = "sectionTitle">Create New Account</span>
+                <form method = "POST">
+                    <span>Enter player's first and last name here:  </span>
+                    <input type = "text" id = "name" name = "name" placeholder = "Enter first and last names here."></input>
+                    <br></br>
+                    <span>Enter user's password here:  </span>
+                    <input type = "text" id = "password" name = "password" placeholder = "Enter desired password here."></input>
+                    <br></br>
+                    <span>Enter phone number here:  </span>
+                    <input type = "text" id = "number" name = "phone_number" placeholder = "Enter phone number here."></input>
+                    <br></br>
+                    <span>Enter Team Name here:</span>
+                    <input type = "text" id = "team" name = "team_name" placeholder = "Enter team name here."></input>
+                    <br></br>
+                    <input type = "submit" id = "manual_add_account" name = "add_account" placeholder = "Create New Account" value = "Create New Account"></input>
+                </form>
+                <span id = "pairs">{{ target_modifications| safe }}</span>
+                <span id = "pairs">{{ match_ups| safe }}</span>
+            </div>
 
         </body>
 </html>
