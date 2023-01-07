@@ -86,22 +86,26 @@ import os, sys                                                                  
 import groupMeNotify as groupMe 
 
 FOLDER_PATH = sys.path[0]
-
+print(FOLDER_PATH)
  
+try:
+    RULESFILE = rf"{FOLDER_PATH}\app\RulesOfWar.txt"
 
-RULESFILE = rf"{FOLDER_PATH}\RulesOfWar.txt"
 
-#C:\Users\Nick\Documents\GitHub\Indy-Assassains-Game\app\IndependenceAssassains.xlsx
-
-DATAFILE = rf"{FOLDER_PATH}\IndependenceAssassains.xlsx"
-QUOTEFILE = rf"{FOLDER_PATH}\WarQuotes.txt"
-UPDATESFILE = rf"{FOLDER_PATH}\Updates.txt"
-CALENDARINPUT = rf"{FOLDER_PATH}\Calendar.xlsx"  
-CALENDARFILE = rf"{FOLDER_PATH}\Calendar.txt"
-CLASSCOUNT = 500
-ENTRYCOST = 10          # Unit is dollars
-REVIVECOST = 5
-GAMEMASTERS = ['green','romsdal','auto']
+    DATAFILE = rf"{FOLDER_PATH}\app\IndependenceAssassains.xlsx"
+    QUOTEFILE = rf"{FOLDER_PATH}\app\WarQuotes.txt"
+    UPDATESFILE = rf"{FOLDER_PATH}\app\Updates.txt"
+    CALENDARINPUT = rf"{FOLDER_PATH}\app\Calendar.xlsx"  
+    CALENDARFILE = rf"{FOLDER_PATH}\app\Calendar.txt"
+    CLASSCOUNT = 500
+    ENTRYCOST = 10          # Unit is dollars
+    REVIVECOST = 5
+    GAMEMASTERS = ['green','romsdal','auto']
+    
+except FileNotFoundError as f:
+    print(f"ERROR: {f}")
+    for i in sys.path:
+        print(sys.path[i])
 
 def generateRules():                                                    # Loads RULESFILE when needed
     ruleFile = open(RULESFILE,"r")
