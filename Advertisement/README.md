@@ -2,7 +2,7 @@
 1. Will consist of two posts/pages.  
 2. First post/page will be the .mp4 video labeled 'IHS co2023 Assassains Poster (1).mp4' this will get people's attention and has a bit on it about where to find
 the sign up link and rules.  
-3. Second post/page will consist of both QR codes labeled 'IndyAssassainsRegistrationForm.png' and 'IndyAssassainsRulePage.png'.  Please emphasize the rules QR code in your post,
+3. Second post/page will consist of both QR codes labeled 'IndyAssassainsRegistrationForm.png' and 'IndyAssassainsRulesPage.png'.  Please emphasize the rules QR code in your post,
 this will be the only time people will be able to see the posts before they register.  
 If they have any questions about registration or the game have them text me at **615-290-9710**.  
 ## **These posts need to get out before Sunday (1/8/2023) at midnight.**  
